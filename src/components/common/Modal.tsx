@@ -6,11 +6,12 @@ import React from "react";
 interface Props {
   onClose: VoidFunction;
   isOpen: boolean;
+  title: React.ReactNode | string;
   children: React.ReactNode;
   size?: "md" | "lg" | "xl" | "sm";
 }
 
-const Modal = ({ children, isOpen, onClose, size = "md" }: Props) => {
+const Modal = ({ children, isOpen, onClose, size = "md", title }: Props) => {
   return (
     isOpen && (
       <div
@@ -25,11 +26,19 @@ const Modal = ({ children, isOpen, onClose, size = "md" }: Props) => {
             "max-w-6xl": size === "xl",
           })}
         >
-          <div
-            className="relative bg-white rounded-lg shadow"
-            onClick={onClose}
-          >
-            <div className="p-5">{children}</div>
+          <div className="relative bg-white shadow rounded-b-lg">
+            <div className="relative w-full bg-black h-1">
+              <i
+                className="fa-solid fa-x fa-bounce text-sm absolute right-2 top-3 cursor-pointer"
+                onClick={onClose}
+              />
+            </div>
+
+            <div className="p-5 pt-7 px-6">
+              <h3 className="text-3xl font-semibold mb-3">{title}</h3>
+
+              <div>{children}</div>
+            </div>
           </div>
         </div>
       </div>

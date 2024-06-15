@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+.letter {
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  width: 54px;
+  height: 54px;
+  text-align: center;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  align-content: center
+}
+
+.gray-letter {
+  color: #fff;
+  background: #a4aec4;
+}
+
+.yellow-letter {
+  color: #fff;
+  background-color: #f3c237 !important
+}
+
+.green-letter {
+  color: #fff;
+  background-color: #79b851 !important
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
