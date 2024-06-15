@@ -29,7 +29,7 @@ const Modal = ({ children, isOpen, onClose, size = "md", title }: Props) => {
           <div className="relative bg-white shadow rounded-b-lg">
             <div className="relative w-full bg-black h-1">
               <i
-                className="fa-solid fa-x fa-bounce text-sm absolute right-2 top-3 cursor-pointer"
+                className="fa-solid fa-x text-sm absolute right-2 top-3 cursor-pointer"
                 onClick={onClose}
               />
             </div>
