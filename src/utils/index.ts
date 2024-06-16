@@ -36,8 +36,6 @@ export const wordMatch = async ({
 };
 
 export const getRandomWord = (letterCount?: number) => {
-  return "session";
-
   letterCount = letterCount || MIN_WORD_LENGTH;
 
   const getTargetWord = () => {
