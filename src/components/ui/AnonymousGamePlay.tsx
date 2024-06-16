@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import GamePlay from "./GamePlay";
 import useSettings from "@/utils/useSettings";
 import Spinner from "../common/Spinner";

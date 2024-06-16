@@ -1,5 +1,3 @@
-import { CustomObject } from "@/models/types";
-
 export const MAX_WORD_LENGTH = 11;
 export const MIN_WORD_LENGTH = 4;
 export const MAX_WORD_TRIES = 6;
