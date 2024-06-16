@@ -17,9 +17,8 @@ const RulesModal = () => {
 
   return (
     <>
-      <div className="flex items-center">
+      <div className="flex items-center" title="How to play">
         <i
-          title="How to play"
           onClick={handleOpenModal}
           className="fa-solid fa-circle-question cursor-pointer"
         />

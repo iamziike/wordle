@@ -6,8 +6,8 @@
   font-size: 28px;
   font-weight: 700;
   display: flex;
-  width: 54px;
-  height: 54px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   border-radius: 5px;
   justify-content: center;
@@ -22,13 +22,53 @@
 
 .yellow-letter {
   color: #fff;
-  background-color: #f3c237 !important
+  background-color: #f3c237;
 }
 
 .green-letter {
   color: #fff;
-  background-color: #79b851 !important
+  background-color: #79b851;
 }
+
+.custom-fa-spin {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+  animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-name: custom-fa-spin;
+  animation-name: custom-fa-spin;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear
+}
+
+@-webkit-keyframes custom-fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn)
+  }
+}
+
+@keyframes custom-fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn)
+  }
+}
+
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
