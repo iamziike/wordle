@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# Get the user email from the Git config
+USER_EMAIL=$(git config --get user.email)
+
+# Check if the email is set
+if [ -z "$USER_EMAIL" ]; then
+  echo "Error: No email is set in the Git configuration."
+  echo "Please set your email using the following command:"
+  echo "  git config --global user.email 'your_email@example.com'"
+  exit 1
+fi
+
+# If email is set, proceed with the commit
+exit 0

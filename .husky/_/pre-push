@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+(echo "Running the build script before Pushing" && cd ./src && pnpm build);
