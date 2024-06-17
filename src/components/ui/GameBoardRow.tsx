@@ -53,7 +53,7 @@ const GameBoardRow = ({ value, targetWord, reveal = false }: Props) => {
         <div
           key={index}
           className={clsx(
-            "border border-gray-300 rounded-md cursor-pointer transition-all duration-300 ease-in-out text-center text-4xl text-gray-700 uppercase flex justify-center items-center w-12 h-12 font-mono",
+            "border border-gray-300 rounded-md cursor-pointer transition-all duration-300 ease-in-out text-center text-4xl text-gray-700 uppercase flex justify-center items-center w-12 h-12",
             {
               "gray-letter": value[index] && reveal,
               "yellow-letter": isIncluded(value[index]) && reveal,
