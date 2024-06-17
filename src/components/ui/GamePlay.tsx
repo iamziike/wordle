@@ -5,10 +5,13 @@ import GameBoardRow from "./GameBoardRow";
 import ConfirmModal from "../common/ConfirmModal";
 import useConfetti from "@/utils/useConfetti";
 import VisualKeyboard from "./VisualKeyboard";
+import useSettings from "@/utils/useSettings";
 import { GameStatus, WordMatchFunc } from "@/models/types";
 import {
   generateArray,
+  isCurrentWordUsingAllPreviousFoundLetters,
   isWordValid,
+  showHardModeToast,
   showWrongWordToast,
   wordMatch,
 } from "@/utils";
@@ -61,6 +64,7 @@ const GamePlay = ({
   );
 
   const fireWorkShow = useConfetti();
+  const { settings } = useSettings();
 
   const handleChange = useCallback(
     (value: string) => {
@@ -91,6 +95,8 @@ const GamePlay = ({
   }, [state.attemptedWords, state.noOfTriesDone]);
 
   const handleSubmit = async () => {
+    const previousEnteredWord =
+      state.attemptedWords[state.noOfTriesDone - 1] ?? "";
     const word = state.attemptedWords[state.noOfTriesDone];
 
     if (state.isFailed || state.isSuccess) {
@@ -98,6 +104,18 @@ const GamePlay = ({
     }
 
     if (word.length !== targetWord.length) {
+      return;
+    }
+
+    if (
+      settings.difficulty === "hard" &&
+      !isCurrentWordUsingAllPreviousFoundLetters(
+        word,
+        previousEnteredWord,
+        targetWord
+      )
+    ) {
+      showHardModeToast();
       return;
     }
 

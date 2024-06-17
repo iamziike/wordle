@@ -83,6 +83,19 @@ export const showWrongWordToast = () => {
   });
 };
 
+export const showHardModeToast = () => {
+  toast.remove();
+  toast("Hard Mode Selected, must use discovered words", {
+    duration: 1000,
+    style: {
+      minWidth: "400px",
+      fontSize: "20px",
+      fontWeight: "400",
+      textAlign: "center",
+    },
+  });
+};
+
 export const fireWorkShow = {
   stop: () => {
     setTimeout(() => {
@@ -134,4 +147,20 @@ export const countLetterOccurrences = (target: string, letter: string) => {
   const regex = new RegExp(letter, "g");
   const matches = target.match(regex);
   return matches ? matches.length : 0;
+};
+
+export const isCurrentWordUsingAllPreviousFoundLetters = (
+  currentWord: string,
+  previousEnteredWord: string,
+  targetWord: string
+) => {
+  const previousEnteredWordLetters = previousEnteredWord.split("");
+
+  return previousEnteredWordLetters.every((letter) => {
+    if (targetWord.includes(letter) && !currentWord.includes(letter)) {
+      return false;
+    }
+
+    return true;
+  });
 };
