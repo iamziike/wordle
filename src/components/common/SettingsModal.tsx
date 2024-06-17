@@ -7,6 +7,7 @@ import FontAwesomeIcon from "./FontAwesomeIcon";
 import useSettings from "@/utils/useSettings";
 import Spinner from "./Spinner";
 import Button from "./Button";
+import DisclaimerModal from "./DisclaimerModal";
 import { Field, Form, Formik } from "formik";
 import { MAX_WORD_LENGTH, MIN_WORD_LENGTH } from "@/constants";
 import { SettingConfigs } from "@/models/types";
@@ -80,8 +81,17 @@ const SettingsModal = () => {
                       </div>
                     </div>
                     <div className="text-center">
-                      <h3 className="bg-slate-100 py-3 rounded-md font-semibold">
+                      <h3 className="bg-slate-100 py-3 rounded-md font-semibold text-center flex gap-2 justify-center">
                         Theme
+                        <DisclaimerModal
+                          title="Theme"
+                          description={
+                            <div>
+                              Feature not yet supported <br />
+                              We will be adding it in a later update
+                            </div>
+                          }
+                        />
                       </h3>
                       <div
                         title="This feature not yet supported"
@@ -129,12 +139,30 @@ const SettingsModal = () => {
                     </div>
 
                     <div className="text-center">
-                      <h3 className="bg-slate-100 py-3 rounded-md font-semibold text-center">
+                      <h3 className="bg-slate-100 py-3 rounded-md font-semibold text-center flex gap-2 justify-center">
                         Difficulty
+                        <DisclaimerModal
+                          animate
+                          title="Difficulty"
+                          description={
+                            values.difficulty === "normal" ? (
+                              <div>
+                                Normal mode will allow you to use any words,
+                                regardless of what you have discovered in your
+                                previous guesses.
+                              </div>
+                            ) : (
+                              <div>
+                                Hard mode will require you to use only the words
+                                you have discovered in your previous guesses
+                              </div>
+                            )
+                          }
+                        />
                       </h3>
                       <div
                         title="This feature not yet supported"
-                        className="flex gap-3 justify-center mt-2 uppercase  opacity-40"
+                        className="flex gap-3 justify-center mt-2 uppercase"
                       >
                         <label
                           className={clsx(
